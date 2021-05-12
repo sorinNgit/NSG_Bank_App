@@ -49,3 +49,26 @@ In main sunt prezentate interogarile ce se pot face in aplicatie:
 * Conversie valutara
 * Refund de obiecte
 * Afisare transaction history
+
+
+# Etapa 2
+
+In etapa a doua am adaugat proiectului clasele **CSV_Reader**, **CSV_Writer** si **CSV_Audit**.
+
+## CSV_Reader
+
+**CSV_Reader** este o clasa de servicii singleton in care am metode pentru citirea din CSV a inputului acolo unde am metode parametrizate.</br>
+readUsingFileReader este metoda de citire din fisiere preluata din laborator, cu cateva modificari: pentru a putea face citirea din CSV realizez un split dupa "," si as vrea sa-mi fie returnate datele sub forma de array de string-uri, deci fac un return de ArrayList<String> unde o sa am tot inputul sub forma unui array de string-uri. </br>
+
+Pentru ca acest singleton sa functioneze cum imi doresc, fac niste modificari si in Main, unde cu un for each din ArrayList-ul meu de string-uri initializez fiecare metoda in parte cu parametrii doriti.</br>
+
+## CSV_Writer
+
+**CSV_Writer** este o clasa de servicii singleton in care am metode pentru scrierea in CSV a unor noi parametrii folositi de metodele din main.
+Am folosit CSV_Writer numai pentru metodele pentru care avea sens sa fie folosit, adica: registerClient, deposit, payment si cashing. </br>
+
+In aceasta clasa avem doua metode pe care le vom folosi pentru scrierea in CSV-uri: **writeOneUsingFileReader** si **writeMultipleUsingFileReader** pentru a diferentia inputul metodelor care cer un singur parametru (ex. deposit, registerClient) si pe cele care cer mai multi parametrii (ex. payment, cashing).</br>
+
+Exemplul de utilizare al clasei se face la inceputul clasei Main.</br>
+
+
